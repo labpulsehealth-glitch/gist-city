@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gist City</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         LANDING SCREEN
+    ========================== -->
+
+    <section id="landing" class="screen active">
+
+        <div class="landing-content">
+
+            <div class="logo">GIST<span>CITY</span></div>
+
+            <p class="tagline">
+                Everybody has a story.<br>
+                Nobody knows the whole truth.
+            </p>
+
+            <p class="intro">
+                Build your life. Make friends. Make money.
+                Help people. Keep secrets. Start drama.
+                And whatever you do...
+                <strong>don't believe every gist you hear.</strong>
+            </p>
+
+            <button class="primary-btn" onclick="showCharacterCreation()">
+                Enter Gist City 👀
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CHARACTER CREATION
+    ========================== -->
+
+    <section id="characterCreation" class="screen">
+
+        <div class="creation-card">
+
+            <div class="logo small">GIST<span>CITY</span></div>
+
+            <h1>Create Your Character</h1>
+
+            <p class="muted">
+                This is the person everyone in Gist City will know.
+            </p>
+
+            <div class="character-preview">
+
+                <div class="avatar">
+
+                    <div class="hair"></div>
+
+                    <div class="face">
+
+                        <div class="eyes">
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="nose"></div>
+
+                        <div class="mouth"></div>
+
+                    </div>
+
+                    <div class="neck"></div>
+
+                    <div class="body">
+                        <div class="shirt"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <label>Your name</label>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="e.g. Amara"
+                maxlength="15"
+            >
+
+
+            <label>Choose your style</label>
+
+            <div class="choice-row">
+
+                <button onclick="changeStyle('purple')">
+                    💜 Soft
+                </button>
+
+                <button onclick="changeStyle('gold')">
+                    ✨ Luxury
+                </button>
+
+                <button onclick="changeStyle('pink')">
+                    🌸 Pretty
+                </button>
+
+                <button onclick="changeStyle('blue')">
+                    💙 Classic
+                </button>
+
+            </div>
+
+
+            <label>Choose your background</label>
+
+            <div class="background-grid">
+
+                <button onclick="selectBackground('student')">
+                    🎓
+                    <strong>Student</strong>
+                    <small>₦100,000</small>
+                </button>
+
+                <button onclick="selectBackground('worker')">
+                    💼
+                    <strong>Working Class</strong>
+                    <small>₦250,000</small>
+                </button>
+
+                <button onclick="selectBackground('entrepreneur')">
+                    🛍️
+                    <strong>Entrepreneur</strong>
+                    <small>₦350,000</small>
+                </button>
+
+                <button onclick="selectBackground('wealthy')">
+                    💎
+                    <strong>Wealthy Family</strong>
+                    <small>₦700,000</small>
+                </button>
+
+            </div>
+
+
+            <button class="primary-btn" onclick="enterCity()">
+                Start My Life ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN CITY
+    ========================== -->
+
+    <section id="city" class="screen">
+
+        <header class="topbar">
+
+            <div class="logo small">
+                GIST<span>CITY</span>
+            </div>
+
+            <div class="wallet">
+                💰 ₦<span id="money">100000</span>
+            </div>
+
+        </header>
+
+
+        <main class="dashboard">
+
+            <!-- PLAYER PROFILE -->
+
+            <section class="profile-card">
+
+                <div class="mini-avatar">
+
+                    <div class="mini-hair"></div>
+
+                    <div class="mini-face">
+
+                        <span class="eye one"></span>
+                        <span class="eye two"></span>
+
+                        <span class="mini-mouth"></span>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <h2 id="displayName">Your Name</h2>
+
+                    <p id="backgroundText">
+                        Student
+                    </p>
+
+                    <div class="stats">
+
+                        <span>⭐ 50 Reputation</span>
+                        <span>🔥 10 Drama</span>
+                        <span>❤️ 50 Relationships</span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- GIST OF THE DAY -->
+
+            <section class="section">
+
+                <div class="section-title">
+
+                    <h2>🗞️ Today's Gist</h2>
+
+                    <span>Trending</span>
+
+                </div>
+
+
+                <div class="gist-card">
+
+                    <div class="gist-header">
+                        🚨 TRENDING GIST
+                    </div>
+
+                    <h3>
+                        Someone in Palm Heights is pretending to be broke... 👀
+                    </h3>
+
+                    <p>
+                        Six people sent this person money yesterday.
+                        This morning, they were spotted buying a
+                        ₦70,000 designer bag.
+                    </p>
+
+                    <div class="gist-actions">
+
+                        <button onclick="react('👀')">👀 Investigate</button>
+
+                        <button onclick="react('🔥')">🔥 Spread the gist</button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- HELP ME OUT -->
+
+            <section class="section">
+
+                <div class="section-title">
+
+                    <h2>💸 Help Me Out</h2>
+
+                    <button onclick="openHelpModal()">
+                        + Make Request
+                    </button>
+
+                </div>
+
+
+                <div class="help-card">
+
+                    <div class="person-avatar pink-avatar">
+                        A
+                    </div>
+
+                    <div class="help-info">
+
+                        <strong>Amaka needs help 😭</strong>
+
+                        <p>
+                            "Please guys, I'm short on rent."
+                        </p>
+
+                        <div class="progress">
+
+                            <div style="width: 62%;"></div>
+
+                        </div>
+
+                        <small>
+                            ₦62,000 / ₦100,000
+                        </small>
+
+                    </div>
+
+                    <button
+                        class="help-btn"
+                        onclick="sendHelp(5000)"
+                    >
+                        Help ₦5k
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ANONYMOUS -->
+
+            <section class="section">
+
+                <div class="section-title">
+
+                    <h2>🕵🏽 Anonymous Inbox</h2>
+
+                    <span class="notification">1</span>
+
+                </div>
+
+
+                <div class="anonymous-card">
+
+                    <div class="anonymous-icon">
+                        ?
+                    </div>
+
+                    <div>
+
+                        <span class="anonymous-label">
+                            ANONYMOUS
+                        </span>
+
+                        <p>
+                            "Don't trust the person you met
+                            at the party last night."
+                        </p>
+
+                    </div>
+
+                    <button onclick="investigate()">
+                        Investigate
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <section class="section">
+
+                <h2>🌆 Explore Gist City</h2>
+
+                <div class="action-grid">
+
+                    <button onclick="showToast('🏠 Your home is being prepared!')">
+                        🏠
+                        <span>My Home</span>
+                    </button>
+
+                    <button onclick="showToast('💼 Jobs coming soon!')">
+                        💼
+                        <span>Jobs</span>
+                    </button>
+
+                    <button onclick="showToast('👨‍👩‍👧 Your family is waiting for you.')">
+                        👨‍👩‍👧
+                        <span>Family</span>
+                    </button>
+
+                    <button onclick="showToast('🛍️ The Market is opening soon!')">
+                        🛍️
+                        <span>Market</span>
+                    </button>
+
+                    <button onclick="showToast('❤️ Your relationships will appear here.')">
+                        ❤️
+                        <span>Relationships</span>
+                    </button>
+
+                    <button onclick="showToast('🚨 Nothing to expose... yet 👀')">
+                        🚨
+                        <span>Exposed</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- DAILY STORY -->
+
+            <section class="story-card">
+
+                <span class="story-label">
+                    📖 YOUR STORY
+                </span>
+
+                <h2>
+                    The Person Next Door
+                </h2>
+
+                <p>
+                    It's your first week in Gist City.
+                    Your neighbour knocked on your door this morning.
+                </p>
+
+                <p>
+                    "Hey... you're new here, right?
+                    I heard something about you."
+                </p>
+
+                <h3>
+                    What do you do?
+                </h3>
+
+                <div class="story-options">
+
+                    <button onclick="chooseStory('friendly')">
+                        😊 Ask what they heard
+                    </button>
+
+                    <button onclick="chooseStory('cold')">
+                        😐 Tell them it's none of their business
+                    </button>
+
+                    <button onclick="chooseStory('gossip')">
+                        👀 Ask what else they've heard
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+
+    <!-- =========================
+         HELP MODAL
+    ========================== -->
+
+    <div id="helpModal" class="modal">
+
+        <div class="modal-card">
+
+            <button
+                class="close"
+                onclick="closeHelpModal()"
+            >
+                ×
+            </button>
+
+            <h2>💸 Make a Help Me Out Request</h2>
+
+            <p>
+                Ask the people of Gist City for virtual money.
+            </p>
+
+            <input
+                id="helpAmount"
+                type="number"
+                placeholder="Amount needed"
+            >
+
+            <input
+                id="helpReason"
+                type="text"
+                placeholder="Why do you need it?"
+            >
+
+            <button
+                class="primary-btn"
+                onclick="createHelpRequest()"
+            >
+                Post Request
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div id="toast"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
